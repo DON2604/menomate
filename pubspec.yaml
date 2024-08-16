@@ -67,6 +67,7 @@ flutter:
     - assets/home/caro2.jpg
     - assets/home/caro3.jpg
     - assets/home/caro4.jpg
+    - assets/home/semicirpink.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

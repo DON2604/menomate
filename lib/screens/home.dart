@@ -37,7 +37,8 @@ class _Home extends State<Home> {
               borderRadius: BorderRadius.circular(18.0), // Rounded edges
               boxShadow: [
                 BoxShadow(
-                  color: const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
+                  color:
+                      const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
                   blurRadius: 10,
                   spreadRadius: 5,
                 ),
@@ -48,26 +49,44 @@ class _Home extends State<Home> {
               child: Carousel(),
             ),
           ),
-          const SizedBox(height: 30,),
+          const SizedBox(
+            height: 30,
+          ),
           Container(
             decoration: BoxDecoration(
               color: Colors.white, // White box
               borderRadius: BorderRadius.circular(18.0), // Rounded edges
               boxShadow: [
                 BoxShadow(
-                  color: const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
+                  color:
+                      const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
                   blurRadius: 10,
                   spreadRadius: 5,
                 ),
               ],
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(children: [Icon(FontAwesomeIcons.calendar),Text("Fri, 15 Aug")],)
+                  const Row(
+                    children: [
+                     
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, left: 10),
+                        child: Icon(FontAwesomeIcons.calendar),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 11, left: 6),
+                        child: Text("Fri, 15 Aug"),
+                      )
+                    ],
+                  ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 35, left: 115),
+                  child: Image.asset("assets/home/semicirpink.png", width: 200),
+                )
               ],
             ),
-            
           )
         ],
       ),
