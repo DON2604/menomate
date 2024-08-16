@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:menomate/widgets/carousel.dart';
@@ -68,19 +70,37 @@ class _Home extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                  const Row(
-                    children: [
-                     
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, left: 10),
-                        child: Icon(FontAwesomeIcons.calendar),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  children: [
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.pink.shade400),
+                          borderRadius: BorderRadius.circular(12.0)),
+                      child: const Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 8.0),
+                            child: Icon(
+                              FontAwesomeIcons.calendar,
+                              color: Colors.pink,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 4, left: 8, right: 4, bottom: 4),
+                            child: Text("Fri, 15 Aug"),
+                          )
+                        ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 11, left: 6),
-                        child: Text("Fri, 15 Aug"),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 35, left: 115),
                   child: Image.asset("assets/home/semicirpink.png", width: 200),
