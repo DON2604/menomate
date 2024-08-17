@@ -1,7 +1,7 @@
-import 'dart:ffi';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:menomate/helpers/datas.dart';
 import 'package:menomate/widgets/carousel.dart';
 
 class Home extends StatefulWidget {
@@ -24,8 +24,8 @@ class _Home extends State<Home> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color.fromARGB(255, 240, 181, 221), // Light Blue
-            Color(0xFFF5F5F5), // Light Grey
+            Color.fromARGB(255, 240, 181, 221),
+            Color(0xFFF5F5F5),
           ],
           stops: [0.0, 0.9],
         ),
@@ -35,8 +35,8 @@ class _Home extends State<Home> {
           Container(
             padding: const EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
-              color: Colors.white, // White box
-              borderRadius: BorderRadius.circular(18.0), // Rounded edges
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(18.0),
               boxShadow: [
                 BoxShadow(
                   color:
@@ -52,12 +52,13 @@ class _Home extends State<Home> {
             ),
           ),
           const SizedBox(
-            height: 30,
+            height: 16,
           ),
           Container(
+            margin: const EdgeInsets.all(12.0),
             decoration: BoxDecoration(
-              color: Colors.white, // White box
-              borderRadius: BorderRadius.circular(18.0), // Rounded edges
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(18.0),
               boxShadow: [
                 BoxShadow(
                   color:
@@ -95,18 +96,84 @@ class _Home extends State<Home> {
                             padding: EdgeInsets.only(
                                 top: 4, left: 8, right: 4, bottom: 4),
                             child: Text("Fri, 15 Aug"),
-                          )
+                          ),
                         ],
                       ),
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 35, left: 115),
-                  child: Image.asset("assets/home/semicirpink.png", width: 200),
-                )
+                const SizedBox(
+                  height: 32,
+                ),
+                Center(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/home/semicirpink.png",
+                        width: 200,
+                      ),
+                      const Column(
+                        children: [
+                          Text(
+                            "Period in",
+                            style: TextStyle(
+                              color: Colors.white, // Text color
+                              fontSize: 20, // Font size
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "21 days",
+                            style: TextStyle(
+                              color: Colors.white, 
+                              fontSize: 20, 
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
+          ),
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 36.0,
+              initialPage: 0,
+              enableInfiniteScroll: false,
+              reverse: false,
+              enlargeCenterPage: false,
+              autoPlay: false,
+              viewportFraction: 0.3,
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index, reason) {
+                print("Current word: ${HealthTipsProvider.words[index]}");
+              },
+            ),
+            items: HealthTipsProvider.words.map((word) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return GestureDetector(
+                    onTap: () {
+                      print("Clicked on: $word");
+                    },
+                    child: Center(
+                      child: Text(
+                        word,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.pink
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            }).toList(),
           )
         ],
       ),

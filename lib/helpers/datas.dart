@@ -1,6 +1,15 @@
 import 'dart:math';
 
 class HealthTipsProvider {
+  static final List<String> words = [
+    "Tips",
+    "Videos",
+    "Exercise",
+    "Diet",
+    "Sleep"
+  ];
+
+
   final List<String> titles = [
     'Tip of the Day',
     'Quote of the Day',
