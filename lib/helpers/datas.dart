@@ -9,7 +9,6 @@ class HealthTipsProvider {
     "Sleep"
   ];
 
-
   final List<String> titles = [
     'Tip of the Day',
     'Quote of the Day',
@@ -32,6 +31,22 @@ class HealthTipsProvider {
     'Aim for 8 hours of sleep.',
     'Fuel your body with good food.',
     'Stay positive, seek support.',
+  ];
+
+  static final items = [
+    {
+      "label": "headphone",
+      "image": "assets/welcome/welcome.gif",},
+      {"label": "tree",
+      "image": "assets/welcome/welcome.gif",},
+      {"label": "car",
+      "image": "assets/welcome/welcome.gif",},
+      {"label": "class",
+      "image": "assets/welcome/welcome.gif",},
+      {"label": "camera",
+      "image": "assets/welcome/welcome.gif",},
+      {"label": "mouse",
+      "image": "assets/welcome/welcome.gif"}
   ];
 
   final Random _random = Random();

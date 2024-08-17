@@ -18,164 +18,211 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromARGB(255, 240, 181, 221),
-            Color(0xFFF5F5F5),
-          ],
-          stops: [0.0, 0.9],
-        ),
-      ),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(bottom: 20),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(18.0),
-              boxShadow: [
-                BoxShadow(
-                  color:
-                      const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
-                  blurRadius: 10,
-                  spreadRadius: 5,
-                ),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromARGB(255, 240, 181, 221),
+                Color(0xFFF5F5F5),
               ],
-            ),
-            child: const Padding(
-              padding: EdgeInsets.only(top: 50.0, left: 20),
-              child: Carousel(),
+              stops: [0.0, 0.9],
             ),
           ),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            margin: const EdgeInsets.all(12.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(18.0),
-              boxShadow: [
-                BoxShadow(
-                  color:
-                      const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
-                  blurRadius: 10,
-                  spreadRadius: 5,
-                ),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 12,
-                ),
-                Row(
-                  children: [
-                    const SizedBox(
-                      width: 12,
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(bottom: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                          const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
+                      blurRadius: 10,
+                      spreadRadius: 5,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.pink.shade400),
-                          borderRadius: BorderRadius.circular(12.0)),
-                      child: const Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Icon(
-                              FontAwesomeIcons.calendar,
-                              color: Colors.pink,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 4, left: 8, right: 4, bottom: 4),
-                            child: Text("Fri, 15 Aug"),
-                          ),
-                        ],
-                      ),
-                    )
                   ],
                 ),
-                const SizedBox(
-                  height: 32,
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 50.0, left: 20),
+                  child: Carousel(),
                 ),
-                Center(
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/home/semicirpink.png",
-                        width: 200,
-                      ),
-                      const Column(
-                        children: [
-                          Text(
-                            "Period in",
-                            style: TextStyle(
-                              color: Colors.white, // Text color
-                              fontSize: 20, // Font size
-                              fontWeight: FontWeight.bold,
-                            ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                margin: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                          const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      children: [
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.pink.shade400),
+                              borderRadius: BorderRadius.circular(12.0)),
+                          child: const Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: Icon(
+                                  FontAwesomeIcons.calendar,
+                                  color: Colors.pink,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: 4, left: 8, right: 4, bottom: 4),
+                                child: Text("Fri, 15 Aug"),
+                              ),
+                            ],
                           ),
-                          Text(
-                            "21 days",
-                            style: TextStyle(
-                              color: Colors.white, 
-                              fontSize: 20, 
-                              fontWeight: FontWeight.bold,
-                            ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/home/semicirpink.png",
+                            width: 200,
+                          ),
+                          const Column(
+                            children: [
+                              Text(
+                                "Period in",
+                                style: TextStyle(
+                                  color: Colors.white, // Text color
+                                  fontSize: 20, // Font size
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "21 days",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          CarouselSlider(
-            options: CarouselOptions(
-              height: 36.0,
-              initialPage: 0,
-              enableInfiniteScroll: false,
-              reverse: false,
-              enlargeCenterPage: false,
-              autoPlay: false,
-              viewportFraction: 0.3,
-              scrollDirection: Axis.horizontal,
-              onPageChanged: (index, reason) {
-                print("Current word: ${HealthTipsProvider.words[index]}");
-              },
-            ),
-            items: HealthTipsProvider.words.map((word) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return GestureDetector(
-                    onTap: () {
-                      print("Clicked on: $word");
-                    },
-                    child: Center(
-                      child: Text(
-                        word,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.pink
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: 36.0,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+                  reverse: false,
+                  enlargeCenterPage: false,
+                  autoPlay: false,
+                  viewportFraction: 0.3,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (index, reason) {
+                    print("Current word: ${HealthTipsProvider.words[index]}");
+                  },
+                ),
+                items: HealthTipsProvider.words.map((word) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return GestureDetector(
+                        onTap: () {
+                          print("Clicked on: $word");
+                        },
+                        child: Center(
+                          child: Text(
+                            word,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.pink),
+                          ),
                         ),
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
+              
+              GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(12),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    childAspectRatio: 1),
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                  return GridTile(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.1),
+                              blurRadius: 10,
+                              spreadRadius: 5)
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            HealthTipsProvider.items[index]["image"]!,
+                            height: 60,
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            HealthTipsProvider.items[index]["label"]!,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          )
+                        ],
                       ),
                     ),
                   );
                 },
-              );
-            }).toList(),
-          )
-        ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
