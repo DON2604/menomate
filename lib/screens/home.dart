@@ -152,7 +152,9 @@ class _Home extends State<Home> {
                   viewportFraction: 0.3,
                   scrollDirection: Axis.horizontal,
                   onPageChanged: (index, reason) {
-                    print("Current word: ${HealthTipsProvider.words[index]}");
+                    setState(() {
+                      Text("$index");
+                    });
                   },
                 ),
                 items: HealthTipsProvider.words.map((word) {
@@ -206,7 +208,7 @@ class _Home extends State<Home> {
                         children: [
                           Image.asset(
                             HealthTipsProvider.items[index]["image"]!,
-                            height: 60,
+                            height: 100,
                           ),
                           const SizedBox(height: 8),
                           Text(
