@@ -16,27 +16,38 @@ class Statistics extends StatelessWidget {
     Chart_Data('Dec', 16),
   ];
 
+  
   Statistics({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<PieData> piedata = <PieData>[
+    PieData("Happy", 45.2, Colors.blue),
+    PieData("Sad", 58.2, Colors.pink)
+  ];
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start, // Align to start from left
+          crossAxisAlignment:
+              CrossAxisAlignment.start, // Align to start from left
           children: [
             const SizedBox(height: 40),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0), // Add padding for a modern look
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0), // Add padding for a modern look
               child: SizedBox(
-                height: 240, // Increased height to accommodate the title and chart
+                height:
+                    240, // Increased height to accommodate the title and chart
                 width: double.infinity,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start, // Aligns text and chart to the left
+                  crossAxisAlignment: CrossAxisAlignment
+                      .start, // Aligns text and chart to the left
                   children: [
                     const Padding(
-                      padding: EdgeInsets.only(bottom: 8.0), // Space between text and chart
+                      padding: EdgeInsets.only(
+                          bottom: 8.0), // Space between text and chart
                       child: Text(
                         "Menstrual Cycle Tracker",
                         style: TextStyle(
@@ -76,6 +87,27 @@ class Statistics extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 8.0), // Space between text and chart
+
+                        child: SfCircularChart(
+                            series: <CircularSeries<PieData, String>>[
+                              RadialBarSeries<PieData, String>(
+                                  maximumValue: 6000,
+                                  radius: '100%',
+                                  gap: '3%',
+                                  dataSource: piedata,
+                                  cornerStyle: CornerStyle.bothCurve,
+                                  xValueMapper: (PieData piedata, _) =>
+                                      piedata.mood,
+                                  yValueMapper: (PieData piedata, _) =>
+                                      piedata.range,
+                                  pointColorMapper: (PieData data, _) =>
+                                      piedata.color)
+                            ]
+                        )
+                      )
                   ],
                 ),
               ),
@@ -93,3 +125,10 @@ class Chart_Data {
 
   Chart_Data(this.x, this.y1);
 }
+class PieData {
+  final String mood;
+  final double range;
+  MaterialColor color;
+  PieData(this.mood, this.range, this.color);
+}
+
