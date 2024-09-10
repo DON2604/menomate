@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class Statistics extends StatelessWidget {
+class Statistics extends StatefulWidget {
+  Statistics({super.key});
+
+  @override
+  State<Statistics> createState() => _StatisticsState();
+}
+
+class _StatisticsState extends State<Statistics> {
   final List<Chart_Data> data = [
     Chart_Data('Jan', 20),
     Chart_Data('Feb', 21),
@@ -16,13 +23,16 @@ class Statistics extends StatelessWidget {
     Chart_Data('Dec', 16),
   ];
 
-  Statistics({super.key});
-
+  double currentSliderValue1 = 0;
+  double currentSliderValue2 = 0;
   @override
   Widget build(BuildContext context) {
     final List<PieData> piedata = <PieData>[
-      PieData("Happy", 45.2, Colors.blue),
-      PieData("Sad", 58.2, Colors.pink)
+      PieData("Happy", 9.5, Colors.yellow),
+      PieData("Sad", 50.5, Colors.blue),
+      PieData('Frustrated', 40.00, Colors.black),
+      PieData('Anxiety', 20.22, Colors.green),
+      PieData('Anger', 19.2, Colors.red)
     ];
 
     return Scaffold(
@@ -44,7 +54,7 @@ class Statistics extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               SizedBox(
-                height: 240, 
+                height: 240,
                 width: double.infinity,
                 child: SfCartesianChart(
                   plotAreaBorderWidth: 0,
@@ -75,24 +85,83 @@ class Statistics extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 16), 
+              const SizedBox(height: 16),
+              const Text(
+                "Mood Tracker",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 8),
               SizedBox(
-                height: 300, 
+                height: 200,
                 child: SfCircularChart(
+                  legend: const Legend(
+                      isVisible: true,
+                      position: LegendPosition.left,
+                      overflowMode: LegendItemOverflowMode.wrap),
                   series: <CircularSeries<PieData, String>>[
                     RadialBarSeries<PieData, String>(
-                      maximumValue: 100, 
-                      radius: '100%',
-                      gap: '3%',
-                      dataSource: piedata,
-                      cornerStyle: CornerStyle.bothCurve,
-                      xValueMapper: (PieData piedata, _) => piedata.mood,
-                      yValueMapper: (PieData piedata, _) => piedata.range,
-                      pointColorMapper: (PieData data, _) => data.color,
-                    )
+                        maximumValue: 100,
+                        radius: '100%',
+                        gap: '3%',
+                        dataSource: piedata,
+                        cornerStyle: CornerStyle.bothCurve,
+                        xValueMapper: (PieData piedata, _) => piedata.mood,
+                        yValueMapper: (PieData piedata, _) => piedata.range,
+                        pointColorMapper: (PieData data, _) => data.color,
+                        name: "Mood tracker")
                   ],
                 ),
               ),
+              const SizedBox(height: 16),
+              const Text(
+                "Mood Tracker",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(
+                height: 100,
+                child: Slider(
+                  value: currentSliderValue1,
+                  max: 3,
+                  divisions: 3,
+                  label: currentSliderValue1.round().toString(),
+                  onChanged: (double newvalue) {
+                    setState(() {
+                      currentSliderValue1 = newvalue;
+                    });
+                  },
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                "Flow Tracker",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(
+                height: 100,
+                child: Slider(
+                  value: currentSliderValue2,
+                  max: 3,
+                  divisions: 3,
+                  label: currentSliderValue2.round().toString(),
+                  onChanged: (double newvalue) {
+                    setState(() {
+                      currentSliderValue2 = newvalue;
+                    });
+                  },
+                ),
+              )
             ],
           ),
         ),
@@ -111,6 +180,6 @@ class Chart_Data {
 class PieData {
   final String mood;
   final double range;
-  final Color color; 
+  final Color color;
   PieData(this.mood, this.range, this.color);
 }
