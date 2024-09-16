@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:menomate/screens/fd.dart';
 import 'package:menomate/screens/home.dart';
+import 'package:menomate/screens/moodPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,11 +14,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
-  // List of pages
+ 
   final List<Widget> _pages = [
-    Home(), // Placeholder for Home Page
-    Statistics(), // Your Statistics Page
-    Center(child: Text('Settings Page')), // Placeholder for Settings Page
+    Home(), 
+    Statistics(), 
+    Center(child: Text('Settings Page')),
+    MoodPage() 
   ];
 
   @override
@@ -41,6 +43,7 @@ class _HomePageState extends State<HomePage> {
           Icon(Icons.home),
           Icon(Icons.favorite),
           Icon(Icons.settings),
+          Icon(Icons.camera_alt_rounded)
         ],
       ),
     );
