@@ -28,10 +28,6 @@ jobs:
           git clone https://github.com/flutter/flutter.git -b stable
           echo "${{ github.workspace }}/flutter/bin" >> $GITHUB_PATH
 
-      - name: Setup local.properties
-        run: |
-          echo "MAPS_API_KEY=${{ secrets.MAPS_API_KEY }}" > $GITHUB_WORKSPACE/watch/android/local.properties
-
       - name: Flutter Pub Get
         run: |
           cd watch
