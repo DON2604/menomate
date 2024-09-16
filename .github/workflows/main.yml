@@ -1,0 +1,49 @@
+name: Build Flutter APK
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'  # Specify the JDK distribution
+
+      - name: Install Flutter
+        run: |
+          git clone https://github.com/flutter/flutter.git -b stable
+          echo "${{ github.workspace }}/flutter/bin" >> $GITHUB_PATH
+
+      - name: Setup local.properties
+        run: |
+          echo "MAPS_API_KEY=${{ secrets.MAPS_API_KEY }}" > $GITHUB_WORKSPACE/watch/android/local.properties
+
+      - name: Flutter Pub Get
+        run: |
+          cd watch
+          flutter pub get
+
+      - name: Build APK
+        run: |
+          cd watch
+          flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: flutter-apk
+          path: watch/build/app/outputs/flutter-apk/app-release.apk
