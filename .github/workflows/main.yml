@@ -30,12 +30,10 @@ jobs:
 
       - name: Flutter Pub Get
         run: |
-          cd watch
           flutter pub get
 
       - name: Build APK
         run: |
-          cd watch
           flutter build apk --release
 
       - name: Upload APK
