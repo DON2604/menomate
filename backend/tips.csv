@@ -1,0 +1,10 @@
+user_id,date,cycle_day,flow,cramps,headache,mood,energy,sleep_hours,exercise_minutes,hydration_liters,hormonal_phase,tip
+1,2024-09-01,1,heavy,3,1,sad,low,6,0,1,menstrual,"Rest more, stay hydrated, use a heating pad for cramps."
+1,2024-09-02,2,medium,2,1,neutral,low,7,10,1,menstrual,"Gentle yoga can help relieve cramps."
+1,2024-09-03,3,light,1,0,happy,medium,7.5,20,1,menstrual,"Stay active and continue hydration."
+2,2024-09-01,5,none,0,2,stressed,low,5.5,0,0.5,follicular,"Get enough sleep and avoid stressful activities."
+2,2024-09-02,6,none,0,2,neutral,medium,8,30,2,follicular,"Increase physical activity, it boosts mood and energy."
+3,2024-09-01,12,none,0,0,energetic,high,8,45,3,ovulatory,"This is a great time for high-intensity workouts."
+3,2024-09-02,13,none,0,0,calm,high,7.5,50,3,ovulatory,"Maintain your energy by balancing exercise with rest."
+4,2024-09-01,21,none,2,3,irritable,low,6,15,1,luteal,"Prioritize self-care, rest, and mindfulness to manage PMS symptoms."
+4,2024-09-02,22,none,3,4,anxious,low,5,0,1,luteal,"Avoid caffeine and try meditation for relaxation."
