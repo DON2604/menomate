@@ -19,7 +19,7 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
-
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,7 +157,7 @@ class _Home extends State<Home> {
                   scrollDirection: Axis.horizontal,
                   onPageChanged: (index, reason) {
                     setState(() {
-                      Text("$index");
+                       _currentIndex = index;
                     });
                   },
                 ),
@@ -182,7 +182,8 @@ class _Home extends State<Home> {
                   );
                 }).toList(),
               ),
-              const VideoGrid()
+              if (_currentIndex == 0) const tipgrid(),
+              if (_currentIndex == 1) const VideoGrid(),
             ],
           ),
         ),

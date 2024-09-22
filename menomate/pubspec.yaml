@@ -44,8 +44,6 @@ dependencies:
   camera: ^0.11.0+2
   camera_android_camerax: 0.6.5
   image: ^3.0.1
-  youtube_player_iframe: 5.1.4
-  youtube_player_flutter: 9.0.1
   url_launcher: ^6.3.0
 
   
@@ -81,6 +79,11 @@ flutter:
     - assets/home/caro4.jpg
     - assets/home/semicirpink.png
     - assets/welcome/welcome.gif
+    - assets/moods/anger.gif
+    - assets/moods/fear.gif
+    - assets/moods/happy.gif
+    - assets/moods/sad.gif
+    - assets/moods/unknown.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

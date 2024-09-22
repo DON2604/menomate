@@ -56,7 +56,7 @@ class _MoodPageState extends State<MoodPage> {
 
   void sendImageToServer(CameraImage image) async {
     final base64Image = _convertToBase64(image);
-    final url = Uri.parse('/api/send_frame');
+    final url = Uri.parse('http://192.168.0.207:5000/api/send_frame');
     try {
       final response = await http.post(
         url,
@@ -107,33 +107,54 @@ class _MoodPageState extends State<MoodPage> {
     return rotatedImage;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    if (_controller == null || !_controller!.value.isInitialized) {
-      return const Center(child: CircularProgressIndicator());
+  Widget _buildGif() {
+    switch (_emotion.toLowerCase()) {
+      case 'anger':
+        return Image.asset('assets/moods/anger.gif',width: 180,);
+      case 'fear':
+        return Image.asset('assets/moods/fear.gif',width: 180,);
+      case 'happy':
+        return Image.asset('assets/moods/happy.gif',width: 180,);
+      case 'sad':
+        return Image.asset('assets/moods/sad.gif',width: 180,);
+      default:
+        return Image.asset('assets/moods/unknown.gif',width: 180,);
     }
-    return Scaffold(
-      appBar: AppBar(title: const Text('Emotion Tracker 😒😜🥲🥺')),
-      body: Column(
-        children: [
-          ClipOval(
+  }
+
+@override
+Widget build(BuildContext context) {
+  if (_controller == null || !_controller!.value.isInitialized) {
+    return const Center(child: CircularProgressIndicator());
+  }
+  return Scaffold(
+    appBar: AppBar(title: const Text('Emotion Tracker 😒😜🥲🥺')),
+    body: Column(
+      children: [
+        SizedBox(height: 40,),
+        Center(
+          child: ClipOval(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width, 
-              height: MediaQuery.of(context).size.width, 
+              width: MediaQuery.of(context).size.width*0.85,
+              height: MediaQuery.of(context).size.width*0.85,
               child: CameraPreview(_controller!),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              'Detected Emotion: $_emotion',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 25.0),
+          child: Text(
+            'Detected Emotion: $_emotion',
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-        ],
-      ),
-    );
-  }
+        ),
+        const SizedBox(height: 20),
+        _buildGif(),  
+      ],
+    ),
+  );
+}
+
 
   @override
   void dispose() {

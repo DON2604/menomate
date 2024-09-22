@@ -2,18 +2,18 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
-class Grider extends StatefulWidget {
-  const Grider({
+class tipgrid extends StatefulWidget {
+  const tipgrid({
     super.key,
   });
 
   @override
-  State<Grider> createState() {
-    return _Grider();
+  State<tipgrid> createState() {
+    return _tipgrid();
   }
 }
 
-class _Grider extends State<Grider> {
+class _tipgrid extends State<tipgrid> {
   String? imageUrl;
   String? tip;
   List<dynamic> healthTips = [];
