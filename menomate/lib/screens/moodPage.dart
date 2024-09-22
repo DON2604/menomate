@@ -111,8 +111,8 @@ class _MoodPageState extends State<MoodPage> {
     switch (_emotion.toLowerCase()) {
       case 'anger':
         return Image.asset('assets/moods/anger.gif',width: 180,);
-      case 'fear':
-        return Image.asset('assets/moods/fear.gif',width: 180,);
+      case 'surprise':
+        return Image.asset('assets/moods/Surprise.gif',width: 180,);
       case 'happy':
         return Image.asset('assets/moods/happy.gif',width: 180,);
       case 'sad':
@@ -131,7 +131,7 @@ Widget build(BuildContext context) {
     appBar: AppBar(title: const Text('Emotion Tracker 😒😜🥲🥺')),
     body: Column(
       children: [
-        SizedBox(height: 40,),
+        const SizedBox(height: 40,),
         Center(
           child: ClipOval(
             child: SizedBox(
