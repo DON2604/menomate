@@ -32,10 +32,12 @@ jobs:
 
       - name: Flutter Pub Get
         run: |
+          cd menomate
           flutter pub get
 
       - name: Build APK
         run: |
+          cd menomate
           flutter build apk --release
 
       - name: Upload APK
