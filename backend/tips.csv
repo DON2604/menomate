@@ -1,10 +1,115 @@
-user_id,date,cycle_day,flow,cramps,headache,mood,energy,sleep_hours,exercise_minutes,hydration_liters,hormonal_phase,tip
-1,2024-09-01,1,heavy,3,1,sad,low,6,0,1,menstrual,"Rest more, stay hydrated, use a heating pad for cramps."
-1,2024-09-02,2,medium,2,1,neutral,low,7,10,1,menstrual,"Gentle yoga can help relieve cramps."
-1,2024-09-03,3,light,1,0,happy,medium,7.5,20,1,menstrual,"Stay active and continue hydration."
-2,2024-09-01,5,none,0,2,stressed,low,5.5,0,0.5,follicular,"Get enough sleep and avoid stressful activities."
-2,2024-09-02,6,none,0,2,neutral,medium,8,30,2,follicular,"Increase physical activity, it boosts mood and energy."
-3,2024-09-01,12,none,0,0,energetic,high,8,45,3,ovulatory,"This is a great time for high-intensity workouts."
-3,2024-09-02,13,none,0,0,calm,high,7.5,50,3,ovulatory,"Maintain your energy by balancing exercise with rest."
-4,2024-09-01,21,none,2,3,irritable,low,6,15,1,luteal,"Prioritize self-care, rest, and mindfulness to manage PMS symptoms."
-4,2024-09-02,22,none,3,4,anxious,low,5,0,1,luteal,"Avoid caffeine and try meditation for relaxation."
+days_passed,cycle_day,flow,mood,sleep_hours,hormonal_phase,tips
+1,1,heavy,irritable,6,menstrual,Stay hydrated and rest
+3,3,medium,tired,7,menstrual,Take iron supplements
+5,5,light,neutral,8,menstrual,Practice gentle exercise
+8,8,none,energetic,7,follicular,Focus on high-protein foods
+12,12,none,happy,8,follicular,Engage in high-intensity workouts
+14,14,none,confident,7,ovulatory,Monitor fertility signs
+16,16,none,anxious,6,luteal,Practice stress-reduction techniques
+20,20,none,irritable,7,luteal,Increase calcium intake
+25,25,none,tired,8,luteal,Prepare for upcoming menstruation
+28,1,heavy,moody,6,menstrual,Use heat therapy for cramps
+30,3,medium,neutral,7,menstrual,Take iron supplements
+32,5,light,better,8,menstrual,Practice gentle exercise
+35,8,none,energetic,8,follicular,Focus on high-protein foods
+39,12,none,confident,7,follicular,Engage in high-intensity workouts
+41,14,none,excited,8,ovulatory,Monitor fertility signs
+43,16,none,neutral,7,luteal,Practice stress-reduction techniques
+47,20,none,irritable,6,luteal,Increase calcium intake
+52,25,none,tired,7,luteal,Prepare for upcoming menstruation
+55,1,heavy,moody,6,menstrual,Stay hydrated and rest
+57,3,medium,better,7,menstrual,Take iron supplements
+59,5,light,neutral,8,menstrual,Practice gentle exercise
+62,8,none,happy,8,follicular,Focus on high-protein foods
+66,12,none,energetic,7,follicular,Engage in high-intensity workouts
+68,14,none,confident,8,ovulatory,Monitor fertility signs
+70,16,none,anxious,6,luteal,Practice stress-reduction techniques
+74,20,none,irritable,7,luteal,Increase calcium intake
+79,25,none,tired,8,luteal,Prepare for upcoming menstruation
+82,1,heavy,irritable,6,menstrual,Use heat therapy for cramps
+84,3,heavy,tired,6,menstrual,Take iron supplements
+86,5,medium,neutral,7,menstrual,Practice gentle exercise
+89,8,none,energetic,8,follicular,Focus on high-protein foods
+93,12,none,happy,8,follicular,Engage in high-intensity workouts
+95,14,none,confident,7,ovulatory,Monitor fertility signs
+97,16,none,anxious,6,luteal,Practice stress-reduction techniques
+101,20,none,irritable,7,luteal,Increase calcium intake
+106,25,none,tired,8,luteal,Prepare for upcoming menstruation
+109,1,heavy,moody,5,menstrual,Stay hydrated and rest
+111,3,medium,tired,6,menstrual,Take iron supplements
+113,5,light,better,7,menstrual,Practice gentle exercise
+116,8,none,happy,8,follicular,Focus on high-protein foods
+120,12,none,energetic,7,follicular,Engage in high-intensity workouts
+122,14,none,excited,8,ovulatory,Monitor fertility signs
+124,16,none,neutral,7,luteal,Practice stress-reduction techniques
+128,20,none,irritable,6,luteal,Increase calcium intake
+133,25,none,tired,7,luteal,Prepare for upcoming menstruation
+136,1,heavy,irritable,6,menstrual,Use heat therapy for cramps
+138,3,medium,neutral,7,menstrual,Take iron supplements
+140,5,light,better,8,menstrual,Practice gentle exercise
+143,8,none,energetic,8,follicular,Focus on high-protein foods
+147,12,none,confident,7,follicular,Engage in high-intensity workouts
+149,14,none,excited,8,ovulatory,Monitor fertility signs
+151,16,none,anxious,6,luteal,Practice stress-reduction techniques
+155,20,none,irritable,7,luteal,Increase calcium intake
+160,25,none,tired,8,luteal,Prepare for upcoming menstruation
+1,1,heavy,irritable,6,menstrual,Stay hydrated and rest
+3,3,medium,tired,7,menstrual,Take iron supplements
+5,5,light,neutral,8,menstrual,Practice gentle exercise
+8,8,none,energetic,7,follicular,Focus on high-protein foods
+12,12,none,happy,8,follicular,Engage in high-intensity workouts
+14,14,none,confident,7,ovulatory,Monitor fertility signs
+16,16,none,anxious,6,luteal,Practice stress-reduction techniques
+20,20,none,irritable,7,luteal,Increase calcium intake
+25,25,none,tired,8,luteal,Prepare for upcoming menstruation
+28,1,heavy,moody,6,menstrual,Use heat therapy for cramps
+30,3,medium,neutral,7,menstrual,Take iron supplements
+32,5,light,better,8,menstrual,Practice gentle exercise
+35,8,none,energetic,8,follicular,Focus on high-protein foods
+39,12,none,confident,7,follicular,Engage in high-intensity workouts
+41,14,none,excited,8,ovulatory,Monitor fertility signs
+43,16,none,neutral,7,luteal,Practice stress-reduction techniques
+47,20,none,irritable,6,luteal,Increase calcium intake
+52,25,none,tired,7,luteal,Prepare for upcoming menstruation
+55,1,heavy,moody,6,menstrual,Stay hydrated and rest
+57,3,medium,better,7,menstrual,Take iron supplements
+59,5,light,neutral,8,menstrual,Practice gentle exercise
+62,8,none,happy,8,follicular,Focus on high-protein foods
+66,12,none,energetic,7,follicular,Engage in high-intensity workouts
+68,14,none,confident,8,ovulatory,Monitor fertility signs
+70,16,none,anxious,6,luteal,Practice stress-reduction techniques
+74,20,none,irritable,7,luteal,Increase calcium intake
+79,25,none,tired,8,luteal,Prepare for upcoming menstruation
+82,1,heavy,irritable,6,menstrual,Use heat therapy for cramps
+84,3,heavy,tired,6,menstrual,Take iron supplements
+86,5,medium,neutral,7,menstrual,Practice gentle exercise
+89,8,none,energetic,8,follicular,Focus on high-protein foods
+93,12,none,happy,8,follicular,Engage in high-intensity workouts
+95,14,none,confident,7,ovulatory,Monitor fertility signs
+97,16,none,anxious,6,luteal,Practice stress-reduction techniques
+101,20,none,irritable,7,luteal,Increase calcium intake
+106,25,none,tired,8,luteal,Prepare for upcoming menstruation
+109,1,heavy,moody,5,menstrual,Stay hydrated and rest
+111,3,medium,tired,6,menstrual,Take iron supplements
+113,5,light,better,7,menstrual,Practice gentle exercise
+116,8,none,happy,8,follicular,Focus on high-protein foods
+120,12,none,energetic,7,follicular,Engage in high-intensity workouts
+122,14,none,excited,8,ovulatory,Monitor fertility signs
+124,16,none,neutral,7,luteal,Practice stress-reduction techniques
+128,20,none,irritable,6,luteal,Increase calcium intake
+133,25,none,tired,7,luteal,Prepare for upcoming menstruation
+136,1,heavy,irritable,6,menstrual,Use heat therapy for cramps
+138,3,medium,neutral,7,menstrual,Take iron supplements
+140,5,light,better,8,menstrual,Practice gentle exercise
+143,8,none,energetic,8,follicular,Focus on high-protein foods
+147,12,none,confident,7,follicular,Engage in high-intensity workouts
+149,14,none,excited,8,ovulatory,Monitor fertility signs
+151,16,none,anxious,6,luteal,Practice stress-reduction techniques
+155,20,none,irritable,7,luteal,Increase calcium intake
+160,25,none,tired,8,luteal,Prepare for upcoming menstruation
+163,1,heavy,irritable,5,menstrual,Take magnesium supplements for cramps
+178,16,none,anxious,6,luteal,Try journaling for emotional balance
+187,25,none,tired,8,luteal,Practice breathing exercises before bed
+190,1,heavy,moody,6,menstrual,Drink herbal teas for relaxation
+192,3,medium,neutral,7,menstrual,Add more fiber to your diet
+194,5,light,better,8,menstrual,Avoid caffeine to improve mood stability

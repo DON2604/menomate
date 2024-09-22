@@ -1,14 +1,10 @@
 import 'dart:math';
 
 class HealthTipsProvider {
-
-
   static final List<String> words = [
     "Tips",
     "Videos",
     "Exercise",
-    "Diet",
-    "Sleep"
   ];
 
   final List<String> titles = [
@@ -38,18 +34,28 @@ class HealthTipsProvider {
   static final items = [
     {
       "label": "headphone",
-      "image": "assets/welcome/welcome.gif",},
-      {"label": "tree",
-      "image": "assets/welcome/welcome.gif",},
-      {"label": "car",
-      "image": "assets/welcome/welcome.gif",},
-      {"label": "class",
-      "image": "assets/welcome/welcome.gif",},
-      {"label": "camera",
-      "image": "assets/welcome/welcome.gif",},
-      {"label": "mouse",
-      "image": "assets/welcome/welcome.gif"}
+      "image": "assets/welcome/welcome.gif",
+    },
+    {
+      "label": "tree",
+      "image": "assets/welcome/welcome.gif",
+    },
+    {
+      "label": "car",
+      "image": "assets/welcome/welcome.gif",
+    },
+    {
+      "label": "class",
+      "image": "assets/welcome/welcome.gif",
+    },
+    {
+      "label": "camera",
+      "image": "assets/welcome/welcome.gif",
+    },
+    {"label": "mouse", "image": "assets/welcome/welcome.gif"}
   ];
+
+
 
   final Random _random = Random();
 

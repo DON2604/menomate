@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:menomate/helpers/datas.dart';
 import 'package:menomate/widgets/carousel.dart';
+import 'package:menomate/widgets/tipgrid.dart';
+import 'package:menomate/widgets/videogrid.dart';
+
 
 class Home extends StatefulWidget {
   const Home({
@@ -16,6 +19,7 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +45,8 @@ class _Home extends State<Home> {
                   borderRadius: BorderRadius.circular(18.0),
                   boxShadow: [
                     BoxShadow(
-                      color:
-                          const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
+                      color: const Color.fromARGB(255, 222, 220, 220)
+                          .withOpacity(0.1),
                       blurRadius: 10,
                       spreadRadius: 5,
                     ),
@@ -63,8 +67,8 @@ class _Home extends State<Home> {
                   borderRadius: BorderRadius.circular(18.0),
                   boxShadow: [
                     BoxShadow(
-                      color:
-                          const Color.fromARGB(255, 222, 220, 220).withOpacity(0.1),
+                      color: const Color.fromARGB(255, 222, 220, 220)
+                          .withOpacity(0.1),
                       blurRadius: 10,
                       spreadRadius: 5,
                     ),
@@ -120,8 +124,8 @@ class _Home extends State<Home> {
                               Text(
                                 "Period in",
                                 style: TextStyle(
-                                  color: Colors.white, // Text color
-                                  fontSize: 20, // Font size
+                                  color: Colors.white,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -178,50 +182,7 @@ class _Home extends State<Home> {
                   );
                 }).toList(),
               ),
-              
-              GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(12),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: 1),
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return GridTile(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.withOpacity(0.1),
-                              blurRadius: 10,
-                              spreadRadius: 5)
-                        ],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            HealthTipsProvider.items[index]["image"]!,
-                            height: 100,
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            HealthTipsProvider.items[index]["label"]!,
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              )
+              const VideoGrid()
             ],
           ),
         ),

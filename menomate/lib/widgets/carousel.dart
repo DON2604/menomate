@@ -29,14 +29,14 @@ class _Carousel extends State<Carousel> {
           ],
         ),
         const Text(
-          "Nidhi Sikdar",
+          "Nidhi Sikder",
           style: TextStyle(fontSize: 38, fontWeight: FontWeight.w400),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 28.0),
           child: CarouselSlider(
             options: CarouselOptions(
-              height: 150.0, // Increased height for space at the top
+              height: 150.0, 
               initialPage: 0,
               enableInfiniteScroll: true,
               reverse: false,
