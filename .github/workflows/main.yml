@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: flutter-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: menomate/build/app/outputs/flutter-apk/app-release.apk
