@@ -26,7 +26,7 @@ class _tipgrid extends State<tipgrid> {
 
   Future<void> fetchHealthTip() async {
     final response = await http.get(Uri.parse(
-        'http://192.168.0.207:5000/tips/Stay%20hydrated%20and%20rest'));
+        'https://7fb8-103-51-148-130.ngrok-free.app/tips/Stay%20hydrated%20and%20rest'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);

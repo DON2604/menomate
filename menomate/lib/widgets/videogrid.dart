@@ -22,7 +22,7 @@ class _VideoGridState extends State<VideoGrid> {
 
   Future<void> fetchVideoIds() async {
     final response = await http.get(
-      Uri.parse('http://192.168.0.207:5000/tips/Stay%20hydrated%20and%20rest'),
+      Uri.parse('https://7fb8-103-51-148-130.ngrok-free.app/tips/Stay%20hydrated%20and%20rest'),
     );
 
     if (response.statusCode == 200) {
