@@ -65,7 +65,6 @@ class _VideoGridState extends State<VideoGrid> {
         enlargeCenterPage: true,
         aspectRatio: 16 / 9,
         scrollDirection: Axis.horizontal,
-        autoPlayCurve: Curves.fastOutSlowIn,
       ),
       items: videoIds.map((videoId) {
         return GestureDetector(
@@ -87,12 +86,13 @@ class _VideoGridState extends State<VideoGrid> {
     );
   }
 
-  void _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      throw 'Could not launch $url';
+  Future<void> _launchUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
     }
   }
 }
