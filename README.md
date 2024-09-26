@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/97fb83c5-7325-4e1b-a90d-09e0e27f8c4a" height="200px" width="200px">
+</p>
+
 
 # Menomate
 
