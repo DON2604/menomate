@@ -64,8 +64,8 @@ The Python backend of Menomate serves as the core for handling the AI-powered pr
 1. Clone the backend repository:
 
    ```bash
-   git clone https://github.com/DON2604/menomate-backend.git
-   cd menomate-backend
+   git clone https://github.com/DON2604/menomate.git
+   cd backend2
    ```
 
 2. Set up a virtual environment and install dependencies:
@@ -79,7 +79,7 @@ The Python backend of Menomate serves as the core for handling the AI-powered pr
 3. Run the Flask server:
 
    ```bash
-   flask run
+   python app.py
    ```
 
 4. The backend server will be available at `http://127.0.0.1:5000`, and it will serve data to the mobile app via API calls.
@@ -90,7 +90,7 @@ The Python backend of Menomate serves as the core for handling the AI-powered pr
 
 ### Prerequisites
 - **Flutter** installed on your machine. Follow the [Flutter installation guide](https://flutter.dev/docs/get-started/install).
-- **Python 3.x** installed to run the Flask backend server.
+- **Python 3.9.11 installed to run the Flask backend server.
 
 ### Setup Instructions for the Mobile App
 1. Clone the repository:
