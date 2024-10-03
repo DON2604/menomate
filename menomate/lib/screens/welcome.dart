@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:menomate/screens/login.dart';
+import 'package:menomate/screens/signup.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -29,13 +31,34 @@ class WelcomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 50),
           Image.asset("assets/welcome/welcome.gif"),
-          const SizedBox(height:50),
-          Center(
-            child: ElevatedButton(
-            
-            onPressed: () { },
-            child: Text('login'),
-            ),
+          const SizedBox(height: 50),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
+                  );
+                },
+                child: const Text('login'),
+              ),
+              const SizedBox(
+                width: 40,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignupScreen()),
+                  );
+                },
+                child: const Text('SignUp'),
+              ),
+            ],
           )
         ],
       ),
