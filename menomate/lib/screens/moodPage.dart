@@ -56,7 +56,7 @@ class _MoodPageState extends State<MoodPage> {
 
   void sendImageToServer(CameraImage image) async {
     final base64Image = _convertToBase64(image);
-    final url = Uri.parse('http://192.168.0.104:5000/api/send_frame');
+    final url = Uri.parse('http://192.168.0.207:5000/api/send_frame');
     try {
       final response = await http.post(
         url,

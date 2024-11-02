@@ -1,11 +1,12 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:menomate/screens/aware.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
-import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 class Statistics extends StatefulWidget {
-  Statistics({super.key});
+  const Statistics({super.key});
 
   @override
   State<Statistics> createState() => _StatisticsState();
@@ -26,36 +27,57 @@ class _StatisticsState extends State<Statistics> {
     Chart_Data('Dec', 16),
   ];
 
-  double currentSliderValue1 = 0;
   double currentSliderValue2 = 0;
-  
+  List<PieData> pieData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchPieData();
+    Timer.periodic(const Duration(seconds:2), (Timer t) => fetchPieData());
+  }
+
+  Future<void> fetchPieData() async {
+    try {
+      final response = await http.get(Uri.parse('http://192.168.0.207:5000/api/emotion_counts'));
+      
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = json.decode(response.body);
+
+        setState(() {
+          pieData = [
+            PieData("Happy", responseData["Happy"].toDouble(), Colors.yellow),
+            PieData("Sad", responseData["Sad"].toDouble(), Colors.blue),
+            PieData("Surprise", responseData["Surprise"].toDouble(), Colors.black),
+            PieData("Fear", responseData["Fear"].toDouble(), Colors.green),
+            PieData("Anger", responseData["Anger"].toDouble(), Colors.red),
+          ];
+        });
+      } else {
+        throw Exception('Failed to load emotion data');
+      }
+    } catch (error) {
+      print("Error fetching data: $error");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final List<PieData> piedata = <PieData>[
-      PieData("Happy", 9.5, Colors.yellow),
-      PieData("Sad", 50.5, Colors.blue),
-      PieData('Frustrated', 40.00, Colors.black),
-      PieData('Anxiety', 20.22, Colors.green),
-      PieData('Anger', 19.2, Colors.red)
-    ];
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0), // Add padding for a modern look
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 40),
               const Text(
-                "Menstrual Cycle Tracker",
+                "Menstrual Cycle Predictor/Tracker",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
-                
                 ),
               ),
               const SizedBox(height: 8),
@@ -64,9 +86,9 @@ class _StatisticsState extends State<Statistics> {
                 width: double.infinity,
                 child: SfCartesianChart(
                   plotAreaBorderWidth: 0,
-                  primaryXAxis: CategoryAxis(
-                    majorGridLines: const MajorGridLines(width: 0),
-                    axisLine: const AxisLine(width: 0.5),
+                  primaryXAxis: const CategoryAxis(
+                    majorGridLines: MajorGridLines(width: 0),
+                    axisLine: AxisLine(width: 0.5),
                   ),
                   primaryYAxis: const NumericAxis(
                     majorGridLines: MajorGridLines(width: 0),
@@ -92,7 +114,7 @@ class _StatisticsState extends State<Statistics> {
               ),
               const SizedBox(height: 16),
               const Text(
-                "Today's Mood Assesment",
+                "Today's Mood Assessment",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -104,93 +126,70 @@ class _StatisticsState extends State<Statistics> {
                 height: 200,
                 child: SfCircularChart(
                   legend: const Legend(
-                      isVisible: true,
-                      position: LegendPosition.left,
-                      overflowMode: LegendItemOverflowMode.wrap),
+                    isVisible: true,
+                    position: LegendPosition.left,
+                    overflowMode: LegendItemOverflowMode.wrap,
+                  ),
                   series: <CircularSeries<PieData, String>>[
                     RadialBarSeries<PieData, String>(
-                        maximumValue: 100,
-                        radius: '100%',
-                        gap: '3%',
-                        dataSource: piedata,
-                        cornerStyle: CornerStyle.bothCurve,
-                        xValueMapper: (PieData piedata, _) => piedata.mood,
-                        yValueMapper: (PieData piedata, _) => piedata.range,
-                        pointColorMapper: (PieData data, _) => data.color,
-                        name: "Mood tracker")
+                      maximumValue: 50,
+                      radius: '100%',
+                      gap: '3%',
+                      dataSource: pieData,
+                      cornerStyle: CornerStyle.bothCurve,
+                      xValueMapper: (PieData pieData, _) => pieData.mood,
+                      yValueMapper: (PieData pieData, _) => pieData.range,
+                      pointColorMapper: (PieData data, _) => data.color,
+                      name: "Mood tracker",
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 16),
-
-              
-              
-              const SizedBox(height: 16),
-              
-              
-                
-                  const Text(
-                    "How is the flow today?",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-              
-              
+              const Text(
+                "How is the flow today?",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
               SizedBox(
                 height: 100,
-                child:SliderTheme(data: SliderThemeData(
-                  trackHeight: 10,
-                ), 
-
+                child: SliderTheme(
+                  data: SliderThemeData(trackHeight: 10),
                   child: Slider(
                     value: currentSliderValue2,
                     max: 3,
                     divisions: 3,
-                    activeColor:Colors.red,
-                    
+                    activeColor: Colors.red,
                     label: currentSliderValue2.round().toString(),
-                    onChanged: (double newvalue) {
+                    onChanged: (double newValue) {
                       setState(() {
-                        currentSliderValue2 = newvalue;
+                        currentSliderValue2 = newValue;
                       });
                     },
-                  )
                   ),
                 ),
-                
-              
+              ),
             ],
-            
           ),
-          
         ),
-        
       ),
-      floatingActionButton:FloatingActionButton(
-                  onPressed: () {
-                    Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const AwarenessRoute()),
-                          
-                          );
-                  },
-                  child: const Icon(Icons.lightbulb_outline_rounded),
-                  splashColor: Colors.yellow
-                  
-                ),
-      floatingActionButtonLocation:FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AwarenessRoute()),
+          );
+        },
+        child: const Icon(Icons.lightbulb_outline_rounded),
+        splashColor: Colors.yellow,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
-    
   }
 }
-
-
-      
-            
-           
 
 class Chart_Data {
   final String x;

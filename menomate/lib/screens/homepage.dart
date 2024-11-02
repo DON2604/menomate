@@ -14,13 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
- 
-  final List<Widget> _pages = [
-    Home(), 
-    Statistics(), 
-    Center(child: Text('Settings Page')),
-    MoodPage() 
-  ];
+  final List<Widget> _pages = [const Home(), Statistics(), const MoodPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +35,7 @@ class _HomePageState extends State<HomePage> {
         },
         items: const [
           Icon(Icons.home),
-          Icon(Icons.favorite),
-          Icon(Icons.settings),
+          Icon(Icons.stacked_bar_chart_rounded),
           Icon(Icons.camera_alt_rounded)
         ],
       ),
