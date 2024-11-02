@@ -1,0 +1,46 @@
+[
+    {
+        "Month": "Jan",
+        "Value": 20
+    },
+    {
+        "Month": "Feb",
+        "Value": 21
+    },
+    {
+        "Month": "Mar",
+        "Value": 20
+    },
+    {
+        "Month": "Apr",
+        "Value": 65
+    },
+    {
+        "Month": "Jun",
+        "Value": 20
+    },
+    {
+        "Month": "Jul",
+        "Value": 45
+    },
+    {
+        "Month": "Aug",
+        "Value": 20
+    },
+    {
+        "Month": "Sept",
+        "Value": 30
+    },
+    {
+        "Month": "Oct",
+        "Value": 38
+    },
+    {
+        "Month": "Nov",
+        "Value": 20
+    },
+    {
+        "Month": "Dec",
+        "Value": 16
+    }
+]
