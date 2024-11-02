@@ -2,12 +2,10 @@ import ast
 import json
 
 def convert_to_python_dict(dictionary_str):
-    # Use Python's Abstract Syntax Trees (AST) to safely evaluate the string as a dictionary
     python_dict = ast.literal_eval(dictionary_str)
     return python_dict
 
 
-# Example Flutter-style dictionary as a string
 flutter_dict_str = '''{
     'Stay hydrated and rest': [
       {
