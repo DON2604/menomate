@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:menomate/screens/aware.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
+import 'package:syncfusion_flutter_sliders/sliders.dart';
+import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
 class Statistics extends StatefulWidget {
   Statistics({super.key});
 
@@ -25,6 +28,8 @@ class _StatisticsState extends State<Statistics> {
 
   double currentSliderValue1 = 0;
   double currentSliderValue2 = 0;
+  
+
   @override
   Widget build(BuildContext context) {
     final List<PieData> piedata = <PieData>[
@@ -50,6 +55,7 @@ class _StatisticsState extends State<Statistics> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
+                
                 ),
               ),
               const SizedBox(height: 8),
@@ -58,10 +64,9 @@ class _StatisticsState extends State<Statistics> {
                 width: double.infinity,
                 child: SfCartesianChart(
                   plotAreaBorderWidth: 0,
-                  primaryXAxis: const CategoryAxis(
-                    majorGridLines: MajorGridLines(width: 0),
-                    edgeLabelPlacement: EdgeLabelPlacement.shift,
-                    axisLine: AxisLine(width: 0.5),
+                  primaryXAxis: CategoryAxis(
+                    majorGridLines: const MajorGridLines(width: 0),
+                    axisLine: const AxisLine(width: 0.5),
                   ),
                   primaryYAxis: const NumericAxis(
                     majorGridLines: MajorGridLines(width: 0),
@@ -87,7 +92,7 @@ class _StatisticsState extends State<Statistics> {
               ),
               const SizedBox(height: 16),
               const Text(
-                "Mood Tracker",
+                "Today's Mood Assesment",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -117,58 +122,75 @@ class _StatisticsState extends State<Statistics> {
                 ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                "Mood Tracker",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              SizedBox(
-                height: 100,
-                child: Slider(
-                  value: currentSliderValue1,
-                  max: 3,
-                  divisions: 3,
-                  label: currentSliderValue1.round().toString(),
-                  onChanged: (double newvalue) {
-                    setState(() {
-                      currentSliderValue1 = newvalue;
-                    });
-                  },
-                ),
-              ),
+
+              
+              
               const SizedBox(height: 16),
-              const Text(
-                "Flow Tracker",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
+              
+              
+                
+                  const Text(
+                    "How is the flow today?",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+              
+              
               SizedBox(
                 height: 100,
-                child: Slider(
-                  value: currentSliderValue2,
-                  max: 3,
-                  divisions: 3,
-                  label: currentSliderValue2.round().toString(),
-                  onChanged: (double newvalue) {
-                    setState(() {
-                      currentSliderValue2 = newvalue;
-                    });
-                  },
+                child:SliderTheme(data: SliderThemeData(
+                  trackHeight: 10,
+                ), 
+
+                  child: Slider(
+                    value: currentSliderValue2,
+                    max: 3,
+                    divisions: 3,
+                    activeColor:Colors.red,
+                    
+                    label: currentSliderValue2.round().toString(),
+                    onChanged: (double newvalue) {
+                      setState(() {
+                        currentSliderValue2 = newvalue;
+                      });
+                    },
+                  )
+                  ),
                 ),
-              )
+                
+              
             ],
+            
           ),
+          
         ),
+        
       ),
+      floatingActionButton:FloatingActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const AwarenessRoute()),
+                          
+                          );
+                  },
+                  child: const Icon(Icons.lightbulb_outline_rounded),
+                  splashColor: Colors.yellow
+                  
+                ),
+      floatingActionButtonLocation:FloatingActionButtonLocation.endFloat,
     );
+    
   }
 }
+
+
+      
+            
+           
 
 class Chart_Data {
   final String x;
