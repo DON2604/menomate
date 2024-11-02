@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 class AwarenessRoute extends StatelessWidget {
-  const AwarenessRoute({super.key});
-  
-
-  
-  
+  const AwarenessRoute({super.key});  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
