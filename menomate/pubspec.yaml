@@ -46,6 +46,8 @@ dependencies:
   image: ^3.0.1
   url_launcher: ^6.3.0
   shared_preferences: ^2.3.2
+  syncfusion_flutter_sliders: 26.2.14
+  flutter_emoji: ">= 2.0.0"
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +78,7 @@ flutter:
     - assets/home/caro2.jpg
     - assets/home/caro3.jpg
     - assets/home/caro4.jpg
+    - assets/home/awareness.png
     - assets/home/semicirpink.png
     - assets/welcome/welcome.gif
     - assets/moods/anger.gif
@@ -84,6 +87,7 @@ flutter:
     - assets/moods/sad.gif
     - assets/moods/unknown.gif
     - assets/welcome/splash_image.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
