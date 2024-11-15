@@ -36,7 +36,7 @@ jobs:
       working-directory: menomate
 
     - name: Rename APK
-      run: mv menomate/build/app/outputs/flutter-apk/app-release.apk visionapp/crop/build/app/outputs/flutter-apk/menomate.apk
+      run: mv menomate/build/app/outputs/flutter-apk/app-release.apk menomate/build/app/outputs/flutter-apk/menomate.apk
 
     - name: Upload APK artifact
       uses: actions/upload-artifact@v3
