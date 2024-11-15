@@ -41,6 +41,16 @@ Menomate is an AI-powered mobile app designed to assist in menstrual health and 
 
 ---
 
+## Screenshots
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/user-attachments/assets/8e3eea6b-ac44-464e-8b40-9cb064679954" width="300" height="700" />
+  <img src="https://github.com/user-attachments/assets/544d83e8-3e7a-4c76-86d0-08302a61fe1b" width="300" height="700" />
+  <img src="https://github.com/user-attachments/assets/7fcde886-1be3-4470-8457-cc38108ec8ac" width="300" height="700" />
+</div>
+
+
+
+
 ## Python Backend
 
 ### Overview
