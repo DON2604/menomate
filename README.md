@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/DON2604/menomate/refs/heads/main/assets/read.png" height="200px" width="200px">
+    <img src="https://raw.githubusercontent.com/DON2604/menomate/refs/heads/main/menomate/assets/read.png" height="200px" width="200px">
 </p>
 
 
