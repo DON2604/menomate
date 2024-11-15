@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:menomate/helpers/datas.dart';
 import 'package:menomate/widgets/carousel.dart';
 import 'package:menomate/widgets/tipgrid.dart';
@@ -89,9 +90,9 @@ class _Home extends State<Home> {
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.pink.shade400),
                               borderRadius: BorderRadius.circular(12.0)),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.only(left: 8.0),
                                 child: Icon(
                                   FontAwesomeIcons.calendar,
@@ -99,9 +100,13 @@ class _Home extends State<Home> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(
+                                padding: const EdgeInsets.only(
                                     top: 4, left: 8, right: 4, bottom: 4),
-                                child: Text("Fri, 15 Aug"),
+                                child: Text(
+                                  DateFormat('EEE, dd MMM').format(
+                                    DateTime.now(),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -157,7 +162,7 @@ class _Home extends State<Home> {
                   scrollDirection: Axis.horizontal,
                   onPageChanged: (index, reason) {
                     setState(() {
-                       _currentIndex = index;
+                      _currentIndex = index;
                     });
                   },
                 ),

@@ -4,7 +4,6 @@ class HealthTipsProvider {
   static final List<String> words = [
     "Tips",
     "Videos",
-    "Exercise",
   ];
 
   final List<String> titles = [
