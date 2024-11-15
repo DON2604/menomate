@@ -23,9 +23,9 @@ jobs:
         java-version: '17'
 
     - name: Set up Flutter
-      uses: flutter-actions/flutter-action@v2
+      uses: flutter-actions/setup-flutter@v2
       with:
-        flutter-version: 'stable'
+        flutter-version: '3.24.5'
 
     - name: Install dependencies
       run: flutter pub get
