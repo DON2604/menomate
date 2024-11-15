@@ -1,3 +1,4 @@
+import random
 from flask import json, jsonify
 def griddict(str):
     dict={
@@ -483,7 +484,8 @@ def griddict(str):
         ]
     }
     if str in dict:
-            result = dict[str]
-            return jsonify(result)  # Return using jsonify for Flask response
+        random_key = random.choice(list(dict.keys()))
+        result = dict[random_key]
+        return jsonify(result)
     else:
-        return jsonify({"error": "Requested dict not found"}) 
+        return jsonify({"error": "Requested key not found"})
