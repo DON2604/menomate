@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:camera/camera.dart';
 import 'dart:async';
 import 'package:image/image.dart' as img;
+import 'package:menomate/helpers/datas.dart';
 
 class MoodPage extends StatefulWidget {
   const MoodPage({super.key});
@@ -56,10 +57,10 @@ class _MoodPageState extends State<MoodPage> {
 
   void sendImageToServer(CameraImage image) async {
     final base64Image = _convertToBase64(image);
-    final url = Uri.parse('http://192.168.0.207:5000/api/send_frame');
+    final url2 = Uri.parse('$url/api/send_frame');
     try {
       final response = await http.post(
-        url,
+        url2,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'frame': base64Image}),
       );

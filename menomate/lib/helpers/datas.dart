@@ -1,4 +1,5 @@
 import 'dart:math';
+String url="http://192.168.0.105:5000";
 
 class HealthTipsProvider {
   static final List<String> words = [

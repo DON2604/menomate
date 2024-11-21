@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:menomate/helpers/datas.dart';
 
 class tipgrid extends StatefulWidget {
   const tipgrid({
@@ -26,7 +27,7 @@ class _tipgrid extends State<tipgrid> {
 
   Future<void> fetchHealthTip() async {
     final response = await http.get(Uri.parse(
-        'http://192.168.0.207:5000/tips/Stay%20hydrated%20and%20rest'));
+        '$url/tips/Stay%20hydrated%20and%20rest'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
