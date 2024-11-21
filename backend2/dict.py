@@ -1,3 +1,5 @@
+import joblib
+import numpy as np
 import random
 from flask import json, jsonify
 def griddict(str):
@@ -483,9 +485,24 @@ def griddict(str):
             }
         ]
     }
-    if str in dict:
-        random_key = random.choice(list(dict.keys()))
-        result = dict[random_key]
-        return jsonify(result)
-    else:
-        return jsonify({"error": "Requested key not found"})
+
+
+    model = joblib.load("emotion_model.pkl")
+    scaler = joblib.load("emotion_scaler.pkl")
+    tips = joblib.load("tips.pkl")
+    with open("emotion_counts.json", "r") as file:
+        emotion_counts = json.load(file)
+
+    emotions_order = ["Anger", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise"]
+    input_emotion_raw = np.array([emotion_counts[emotion] for emotion in emotions_order]).reshape(1, -1)
+
+    input_emotion = scaler.transform(input_emotion_raw)
+
+    distances, indices = model.kneighbors(input_emotion)
+    output_tip = tips[indices[0][0]]
+    result = dict[output_tip]
+    return jsonify(result)
+
+    
+
+
