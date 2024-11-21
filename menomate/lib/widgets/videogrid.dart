@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:menomate/helpers/datas.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class VideoGrid extends StatefulWidget {
@@ -22,7 +23,7 @@ class _VideoGridState extends State<VideoGrid> {
 
   Future<void> fetchVideoIds() async {
     final response = await http.get(
-      Uri.parse('http://192.168.0.207:5000/tips/Stay%20hydrated%20and%20rest'),
+      Uri.parse('$url/tips/Stay%20hydrated%20and%20rest'),
     );
 
     if (response.statusCode == 200) {

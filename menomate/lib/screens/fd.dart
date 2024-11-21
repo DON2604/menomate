@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:menomate/helpers/datas.dart';
 import 'package:menomate/screens/aware.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:http/http.dart' as http;
@@ -39,7 +40,7 @@ class _StatisticsState extends State<Statistics> {
 
   Future<void> fetchPieData() async {
     try {
-      final response = await http.get(Uri.parse('http://192.168.0.207:5000/api/emotion_counts'));
+      final response = await http.get(Uri.parse('$url/api/emotion_counts'));
       
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = json.decode(response.body);
