@@ -82,7 +82,7 @@ The Python backend of Menomate serves as the core for handling the AI-powered pr
 
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scriptsctivate
+   source venv/bin/activate  
    pip install -r requirements.txt
    ```
 
