@@ -6,7 +6,6 @@ import 'package:menomate/helpers/datas.dart';
 import 'package:menomate/widgets/carousel.dart';
 import 'package:menomate/widgets/tipgrid.dart';
 import 'package:menomate/widgets/videogrid.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class Home extends StatefulWidget {
   const Home({

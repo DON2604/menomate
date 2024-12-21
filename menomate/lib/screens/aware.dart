@@ -87,7 +87,7 @@ class AwarenessRoute extends StatelessWidget {
                       ),
                     ]),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // Follicular Phase Information
                   const Text(
                     "2. Follicular Phase",
@@ -138,7 +138,7 @@ class AwarenessRoute extends StatelessWidget {
                   ),
                   Container(
                     height: 130,
-                    padding: EdgeInsets.all(3.0),
+                    padding: const EdgeInsets.all(3.0),
                     decoration: BoxDecoration(
                         color: Colors.blueAccent,
                         border: Border.all(

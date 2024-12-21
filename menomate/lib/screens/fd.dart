@@ -158,7 +158,7 @@ class _StatisticsState extends State<Statistics> {
               SizedBox(
                 height: 100,
                 child: SliderTheme(
-                  data: SliderThemeData(trackHeight: 10),
+                  data: const SliderThemeData(trackHeight: 10),
                   child: Slider(
                     value: currentSliderValue2,
                     max: 3,
@@ -184,8 +184,8 @@ class _StatisticsState extends State<Statistics> {
             MaterialPageRoute(builder: (context) => const AwarenessRoute()),
           );
         },
-        child: const Icon(Icons.lightbulb_outline_rounded),
         splashColor: Colors.yellow,
+        child: const Icon(Icons.lightbulb_outline_rounded),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );

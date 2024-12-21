@@ -6,7 +6,7 @@ import 'package:menomate/helpers/datas.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class VideoGrid extends StatefulWidget {
-  const VideoGrid({Key? key}) : super(key: key);
+  const VideoGrid({super.key});
 
   @override
   _VideoGridState createState() => _VideoGridState();
